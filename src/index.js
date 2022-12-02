@@ -6,7 +6,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import NewApiServices from './js/NewApiServices';
 
 const countryInfo = document.querySelector('.country-info');
-const countryList = document.querySelector('.country-info');
+const countryList = document.querySelector('.country-list');
 const searchInput = document.querySelector('#search-box');
 
 const DEBOUNCE_DELAY = 300;
@@ -32,8 +32,10 @@ function onSearch(e) {
       }
     })
     .catch(error => {
+      if (newApiServices.query.length <= 1) {
+        return;
+      }
       Notify.failure('Oops, there is no country with that name');
-      return;
     });
   clearCountriesContainer();
 }
@@ -65,4 +67,5 @@ function makeCountryListMarkup(countries) {
 
 function clearCountriesContainer() {
   countryInfo.innerHTML = '';
+  countryList.innerHTML = '';
 }

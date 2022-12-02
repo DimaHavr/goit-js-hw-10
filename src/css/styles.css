@@ -7,8 +7,13 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
+
+  background: linear-gradient(#000000a3, rgba(0, 0, 0, 0.5)), url(../images/backgroung.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #ffffff;
   line-height: 1.5;
 }
 
@@ -18,6 +23,65 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
-.country-svg {
+
+/* country-list */
+.country-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.country-list-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  list-style-type: none;
+}
+
+.country-list-svg {
   max-width: 50px;
+}
+
+.country-list-title {
+  font-weight: 600;
+  font-size: 35px;
+}
+
+/* country-info */
+.country-info-box {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.country-info {
+  margin-left: 40px;
+}
+
+.country-info-svg {
+  max-width: 100px;
+}
+
+.country-info-list {
+  margin: 0;
+  padding: 0;
+}
+
+.country-info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.country-info-title {
+  font-weight: 700;
+  font-size: 35px;
+}
+.country-info-subtitle {
+  font-weight: 700;
+  font-size: 25px;
+}
+.country-info-text {
+  font-weight: 600;
+  font-size: 20px;
 }

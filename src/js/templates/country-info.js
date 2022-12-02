@@ -1,19 +1,20 @@
 export default function countryInfoTpl(item) {
   const { name, capital, population, flags, languages } = item;
-  return `<img class="country-svg" src = "${flags.svg}" alt = "">
-<h2>${name.official}</h2>
-<ul>
-   <li>
-      <h3>Capital:</h3>
-      <p>${capital}</p>
+  return `<div class="country-info-box">
+  <img class="country-info-svg" src = "${flags.svg}" alt = "">
+<h2 class="country-info-title">${name.official}</h2></div>
+<ul class="country-info-list">
+   <li class="country-info-item">
+      <h3 class="country-info-subtitle">Capital:</h3>
+      <p class="country-info-text">${capital}</p>
    </li>
-   <li>
-      <h3>Population:</h3>
-      <p>${population}</p>
+   <li class="country-info-item">
+      <h3 class="country-info-subtitle">Population:</h3>
+      <p class="country-info-text">${population}</p>
    </li>
-   <li>
-      <h3>Languages:</h3>
-      <p>${Object.values(languages)}</p>
+   <li class="country-info-item">
+      <h3 class="country-info-subtitle">Languages:</h3>
+      <p class="country-info-text">${Object.values(languages)}</p>
    </li>
 </ul>`;
 }
