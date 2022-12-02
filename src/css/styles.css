@@ -28,7 +28,7 @@ body {
 .country-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .country-list-item {
@@ -45,6 +45,7 @@ body {
 .country-list-title {
   font-weight: 600;
   font-size: 35px;
+  margin: 0;
 }
 
 /* country-info */
@@ -76,12 +77,16 @@ body {
 .country-info-title {
   font-weight: 700;
   font-size: 35px;
+  margin: 0;
 }
 .country-info-subtitle {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 25px;
+  margin: 0;
 }
 .country-info-text {
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  gap: 5px;
+  font-style: italic;
 }
