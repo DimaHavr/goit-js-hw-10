@@ -48,6 +48,7 @@ function renderCountryInfoMarkup([country]) {
 
 function renderCountryListMarkup(countries) {
   const makeCountryListMarkup = countries.map(countryListTpl).join('');
+  console.log(makeCountryListMarkup);
   countryList.insertAdjacentHTML('beforeend', makeCountryListMarkup);
 }
 
