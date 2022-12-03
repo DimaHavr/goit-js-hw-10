@@ -41,20 +41,21 @@ function onSearch(e) {
 }
 
 function renderCountryInfoMarkup([country]) {
+  console.log(makeCountryInfoMarkup(country));
   makeCountryInfoMarkup(country);
 }
 
-function renderCountryListMarkup([country]) {
-  makeCountryListMarkup(country);
+function renderCountryListMarkup(countries) {
+  countries.flatMap(item => {
+    makeCountryListMarkup(item);
+  });
 }
 
 function makeCountryInfoMarkup(countries) {
-  console.log(countryInfoTpl(countries));
   countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(countries));
 }
 
 function makeCountryListMarkup(countries) {
-  console.log(countryListTpl(countries));
   countryList.insertAdjacentHTML('beforeend', countryListTpl(countries));
 }
 
