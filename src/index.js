@@ -49,6 +49,7 @@ function renderCountryListMarkup([country]) {
 }
 
 function makeCountryInfoMarkup(countries) {
+  console.log(countryInfoTpl(countries));
   countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(countries));
 }
 
