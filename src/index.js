@@ -1,9 +1,10 @@
 import './css/styles.css';
-import countryInfoTpl from './js/templates/country-info';
-import countryListTpl from './js/templates/country-list';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import NewApiServices from './js/NewApiServices';
+import countryInfoTpl from './js/templates/country-info';
+import countryListTpl from './js/templates/country-list';
 
 const countryInfo = document.querySelector('.country-info');
 const countryList = document.querySelector('.country-list');
@@ -41,22 +42,12 @@ function onSearch(e) {
 }
 
 function renderCountryInfoMarkup([country]) {
-  console.log(makeCountryInfoMarkup(country));
-  makeCountryInfoMarkup(country);
+  countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(country));
 }
 
 function renderCountryListMarkup(countries) {
-  countries.flatMap(item => {
-    makeCountryListMarkup(item);
-  });
-}
-
-function makeCountryInfoMarkup(countries) {
-  countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(countries));
-}
-
-function makeCountryListMarkup(countries) {
-  countryList.insertAdjacentHTML('beforeend', countryListTpl(countries));
+  const makeCountryListMarkup = countries.map(countryListTpl).join('');
+  countryList.insertAdjacentHTML('beforeend', makeCountryListMarkup);
 }
 
 function clearCountriesContainer() {
