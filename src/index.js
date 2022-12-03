@@ -1,7 +1,7 @@
 import './css/styles.css';
 import countryInfoTpl from './js/templates/country-info';
 import countryListTpl from './js/templates/country-list';
-import throttle from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import NewApiServices from './js/NewApiServices';
 
@@ -13,7 +13,7 @@ const DEBOUNCE_DELAY = 300;
 
 const newApiServices = new NewApiServices();
 
-searchInput.addEventListener('input', throttle(onSearch, DEBOUNCE_DELAY));
+searchInput.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(e) {
   newApiServices.query = searchInput.value.trim();
@@ -40,29 +40,21 @@ function onSearch(e) {
   clearCountriesContainer();
 }
 
-function renderCountryInfoMarkup(countries) {
-  countries.flatMap(item => {
-    countryInfoTpl(item);
-    makeCountryInfoMarkup(item);
-  });
+function renderCountryInfoMarkup([country]) {
+  makeCountryInfoMarkup(country);
 }
 
-function renderCountryListMarkup(countries) {
-  countries.flatMap(item => {
-    countryListTpl(item);
-    makeCountryListMarkup(item);
-    return;
-  });
-
-  return;
+function renderCountryListMarkup([country]) {
+  makeCountryListMarkup(country);
 }
 
 function makeCountryInfoMarkup(countries) {
-  return countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(countries));
+  countryInfo.insertAdjacentHTML('beforeend', countryInfoTpl(countries));
 }
 
 function makeCountryListMarkup(countries) {
-  return countryList.insertAdjacentHTML('beforeend', countryListTpl(countries));
+  console.log(countryListTpl(countries));
+  countryList.insertAdjacentHTML('beforeend', countryListTpl(countries));
 }
 
 function clearCountriesContainer() {

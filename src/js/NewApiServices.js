@@ -16,6 +16,6 @@ export default class NewApiServices {
   }
 
   set query(newQuery) {
-    return (this.searchQuery = newQuery);
+    this.searchQuery = newQuery;
   }
 }

@@ -1,5 +1,10 @@
-export default function countryInfoTpl(item) {
-  const { name, capital, population, flags, languages } = item;
+export default function countryInfoTpl({
+  name,
+  capital,
+  population,
+  flags,
+  languages,
+}) {
   return `<div class="country-info-box">
   <img class="country-info-svg" src = "${flags.svg}" alt = "">
 <h2 class="country-info-title">${name.common}</h2></div>
