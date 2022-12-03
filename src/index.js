@@ -6,10 +6,10 @@ import NewApiServices from './js/NewApiServices';
 import countryInfoTpl from './js/templates/country-info';
 import countryListTpl from './js/templates/country-list';
 
-const countryListTpl = countryListTpl;
 const countryInfo = document.querySelector('.country-info');
 const countryList = document.querySelector('.country-list');
 const searchInput = document.querySelector('#search-box');
+const countryListTpl = countryListTpl;
 
 const DEBOUNCE_DELAY = 300;
 
